@@ -1,0 +1,13 @@
+{
+  "name": "vue-ssr-laravel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-cdk/assets-docker": "^0.28.0",
+    "@aws-cdk/aws-ec2": "^0.28.0",
+    "@aws-cdk/aws-ecs": "^0.28.0",
+    "@aws-cdk/aws-elasticloadbalancingv2": "^0.28.0",
+    "@aws-cdk/cdk": "^0.28.0"
+  }
+}

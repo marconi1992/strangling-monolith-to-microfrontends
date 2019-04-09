@@ -1,0 +1,29 @@
+version: "2"
+services:
+  blog:
+    build: ./docker/php
+    volumes:
+      - ./blog:/app
+    working_dir: /app
+    links:
+      - hypernova
+  hypernova:
+    image: node:10-slim
+    volumes:
+      - ./hypernova:/app
+    working_dir: /app
+    ports:
+      - 3000:3000
+    command:
+      - yarn
+      - dev
+    environment:
+      PORT: 3000 
+  proxy:
+    build: ./docker/proxy
+    links:
+      - blog
+      - hypernova
+    ports:
+      - 80:8080
+  
