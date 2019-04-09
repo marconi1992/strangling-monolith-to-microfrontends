@@ -24,7 +24,7 @@ class BlogStack extends cdk.Stack {
     });
 
     const proxyImage = new DockerImageAsset(this, 'Proxy', {
-      directory: path.join(__dirname, '../docker/proxy')
+      directory: path.join(__dirname, '../hypernova-proxy')
     });
 
     const blogImage = new DockerImageAsset(this, 'Blog', {
