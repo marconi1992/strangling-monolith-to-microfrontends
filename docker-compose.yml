@@ -7,6 +7,8 @@ services:
     working_dir: /app
     links:
       - hypernova
+    ports:
+      - 8000:8000
   hypernova:
     image: node:10-slim
     volumes:
@@ -20,16 +22,10 @@ services:
     environment:
       PORT: 3000 
   proxy:
-    image: node:10-slim
-    working_dir: /app
-    volumes:
-      - ./hypernova-proxy:/app
+    build: ./hypernova-proxy-go
     links:
       - blog
       - hypernova
     ports:
-      - 80:8080
-    command:
-      - yarn
-      - dev
+      - 8080:8080
   
