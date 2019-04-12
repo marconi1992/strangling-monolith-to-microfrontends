@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        Blade::directive('hypernova', function ($name) {
-            return "<?php echo \App\Facades\Hypernova::pushJob($name, $name) ?>";
+        Blade::directive('hypernova', function ($params) {
+            return "<?php echo \App\Facades\Hypernova::pushJob($params, $params) ?>";
         });
     }
 }

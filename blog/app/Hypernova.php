@@ -16,8 +16,15 @@ class Hypernova
         $this->renderer = $renderer;
     }
 
-    public function pushJob($component, $data = [])
+    public function pushJob($component, $data)
     {
+        $component = $component ?? "";
+        $data = $data ?? new \stdClass();
+
+        if (empty($component)) {
+            throw new \InvalidArgumentException("The component name can not be empty");
+        }
+
         $uuid = $this->addJob($component, $data);
         return $this->renderPlaceholder($uuid);
     }
