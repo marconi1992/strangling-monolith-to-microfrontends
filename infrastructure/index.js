@@ -24,7 +24,7 @@ class BlogStack extends cdk.Stack {
     });
 
     const proxyImage = new DockerImageAsset(this, 'Proxy', {
-      directory: path.join(__dirname, '../hypernova-proxy-go')
+      directory: path.join(__dirname, '../proxy')
     });
 
     const blogImage = new DockerImageAsset(this, 'Blog', {
@@ -65,7 +65,10 @@ class BlogStack extends cdk.Stack {
       image: ecs.ContainerImage.fromEcrRepository(proxyImage.repository),
       memoryLimitMiB: 128,
       cpu: 128,
-      essential: true
+      essential: true,
+      environment: {
+        'HYPERNOVA_BATCH': 'http://hypernova:3000/batch'
+      }
     });
 
     proxyContainer.addPortMappings({

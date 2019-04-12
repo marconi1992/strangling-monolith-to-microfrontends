@@ -1,0 +1,13 @@
+{
+  "locations": [
+    {
+      "path": "/",
+      "host": "http://blog:8000",
+      "modifyResponse": true
+    },
+    {
+      "path": "/public/client.js",
+      "host": "http://hypernova:3000"
+    }
+  ]
+}
