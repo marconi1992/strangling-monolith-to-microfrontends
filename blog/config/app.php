@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Marconi\Nova\NovaServiceProvider::class,
 
         /*
          * Application Service Providers...

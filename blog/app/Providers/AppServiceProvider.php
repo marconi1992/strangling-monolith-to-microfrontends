@@ -16,13 +16,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(HypernovaRenderer::class, function () {
-            return new HypernovaRenderer('http://hypernova:3000/batch');
-        });
-
-        $this->app->singleton('hypernova', function ($app) {
-            return new Hypernova($app->make(HypernovaRenderer::class));
-        });
     }
 
     /**
@@ -32,9 +25,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        Blade::directive('hypernova', function ($params) {
-            return "<?php echo \App\Facades\Hypernova::pushJob($params, $params) ?>";
-        });
     }
 }
