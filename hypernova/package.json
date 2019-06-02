@@ -10,7 +10,7 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "hypernova": "^2.5.0",
     "hypernova-vue": "^2.0.0",
     "vue": "^2.6.6",
